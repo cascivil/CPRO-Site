@@ -15,6 +15,16 @@ class Error extends Controller
 	{
 		$this->view->render('Error/Error404', false);
 	}
+
+	function Error404 ()
+	{
+		$this->view->render('Error/Error404', false);
+	}
+
+	function Error500 ()
+	{
+		$this->view->render('Error/Error500', false);
+	}
 }
 
 ?>

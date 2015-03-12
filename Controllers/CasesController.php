@@ -1,6 +1,6 @@
 <?php
 
-class Portifolio extends Controller
+class Cases extends Controller
 {
 
 	function __construct ()
@@ -10,7 +10,7 @@ class Portifolio extends Controller
 
 	function index ()
 	{
-		$this->view->render('Portifolio/Index', false);
+		$this->view->render('Cases/Index', false);
 	}
 
 }

@@ -60,17 +60,15 @@ class Application
         $url = strtolower(rtrim($url, '/'));
         $url = explode('/', $url);
 
-        print_r($url);
-
         $this->st_controller = !empty($url[0]) ? ucfirst($url[0]) : 'Index';
+
+        //echo $this->st_controller;
 
         if (strpos($this->st_controller, '-'))
         {
             $this->st_controller = explode('-', $this->st_controller);
             $this->st_controller = $this->st_controller[0] . ucfirst($this->st_controller[1]);
         }
-
-        echo '<br>' . $this->st_controller . '<br>';
 
         $this->st_action = !empty($url[1]) ? $url[1] : 'index';
 
@@ -80,10 +78,7 @@ class Application
             $this->st_action = $this->st_action[0] . ucfirst($this->st_action[1]);
         }
 
-        echo $this->st_action;
-
         $length = count($url);
-        echo 'Tamanho URL ' . $length . '<br>';
 
         if ($length > 2)
         {
@@ -93,15 +88,11 @@ class Application
             {
                 $this->st_parameters .= ', ' . $url[$i];
             }
-
-//            $this->st_parameters = implode(',', $this->st_parameters);
         }
         else
         {
             empty($this->st_parameters);
         }
-
-        echo 'Parametros da URL:   ' . $this->st_parameters;
     }
 
     /*
