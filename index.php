@@ -12,7 +12,7 @@
 
   // Adicionando variáveis de sistema
   require 'config.php';
-  require 'Util/Auth.php';
+  require SITE_PATH . 'Util/Auth.php';
 
   // Configurando o PHP para mostrar os erros na tela
   ini_set('display_errors', 1);
@@ -20,18 +20,8 @@
   // Configurando o PHP para reportar todo e qualquer erro
   error_reporting(E_ALL);
 
-/*
-  require_once 'lib/Application.php';
-  $o_Application = new Application();
-  $o_Application->dispatch();
-*/
-
   // Loading config files
-  require 'Lib/Application.php';
-  require 'Lib/Controller.php';
-  require 'Lib/View.php';
-
- // $app = new Dispatcher();
+  require_once SITE_PATH . LIBS . 'Application.php';
 
   // Application start
   $o_Application = new Application();

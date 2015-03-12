@@ -30,7 +30,6 @@ class Sobre extends Controller
 
 	function curriculo ($st_name = null)
 	{
-		echo '<br><br>' . $st_name;
 		if (!isset($st_name))
 		{
 			$this->view->render('Sobre/Index', false);

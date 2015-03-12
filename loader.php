@@ -6,7 +6,7 @@ if ( ! defined('ABSPATH')) exit;
 // Inicia a sessão
 session_start ();
  
-// Verifica o modo para debugar
+// Verify Debug Mode
 if ( ! defined('DEBUG') || DEBUG === false ) 
 {
 	// Esconde todos os erros

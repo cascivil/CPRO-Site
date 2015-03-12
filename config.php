@@ -2,6 +2,7 @@
 
 // Always provide a TRAILING SLASH (/) AFTER A PATH
 define('URL', 'http://hom.cproengenharia.com.br:8081/');
+define('SITE_PATH', 'C:/wamp/www/CPRO-Site/');
 define('LIBS', 'Lib/');
 define('CONTROLLER', 'Controllers/');
 define('MODELS', 'Models/');
