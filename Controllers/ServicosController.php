@@ -1,16 +1,17 @@
 <?php
 
-	class Servicos extends Controller
+class Servicos extends Controller
+{
+
+	function __construct ()
 	{
-
-		function __construct() {
-			parent::__construct();
-
-    		$this->view->render('Servicos/Index', false);
-		}
-
-
+		parent::__construct();
 	}
 
+	function index ()
+	{
+		$this->view->render('Servicos/Index', false);
+	}
+}
 
 ?>
