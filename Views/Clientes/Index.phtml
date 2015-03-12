@@ -1,0 +1,52 @@
+<!-- Page heading starts -->
+
+<div class="page-head">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Clients</h2>
+        <h4>Conheça alguns de nossos clientes</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+
+<div class="content client-page">
+  <div class="container">
+	<div class="row">
+
+		<?php
+			$value = 1;
+
+			foreach (array(1,2,3,4,5,6) as $value)
+			{
+				echo '<div class="col-md-4 col-sm-6">';
+				   echo '<div class="cclient">';
+
+					  echo '<div class="cimage">';
+						 echo '<img src="Content/img/clients/' . $value . '.png" alt="NomeCliente ' . $value . '" class="img-responsive" />';
+					  echo '</div>';
+
+					  echo '<div class="cmatter">';
+						 echo '<p>Praesent at tellus porttitor nisl porttitor sagittis. Mauris in massa ligula, a tempor nulla.</p>';
+
+						 echo '<div class="button"><a href="#">Visite o Site</a></div>';
+					  echo '</div>';
+				   echo '</div>';
+				echo '</div>';
+
+				$value = $value + 1;
+			}
+
+		?>
+
+	</div>
+  </div>
+</div>
+
+<!-- Page content ends -->
+

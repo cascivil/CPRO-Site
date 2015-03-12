@@ -1,0 +1,68 @@
+<!-- Page heading starts -->
+
+<div class="page-head">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Portfolio</h2>
+                <h4>Saiba mais sobre os projetos que CPRO realizou.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Page Heading ends -->
+
+<!-- Page content starts -->
+
+<div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">  
+
+        <!-- Add filter names inside "data-filter". For example ".web-design", ".seo", etc., Filter names are used to filter the below images. -->
+
+        <div id="portfolio">
+          <!-- Add the above used filter names inside div tag. You can add more than one filter names. For image lightbox you need to include "a" tag pointing to image link, along with the class "prettyphoto".-->
+
+          <?php
+          $value = 1;
+          $index = 1;
+
+          foreach ($portifolio = array("estruturas","hidraulica", "three","three",5,6,7) as $value)
+          {
+            echo '<div class="element ' . $value . ' four five">';
+            echo '<a href="Content/img/photos/' . $index . '.jpg" class="prettyphoto">';
+            echo '<img src="Content/img/photos/' . $index . '.jpg" alt="" />';
+            echo '<div class="pcap">';
+            echo '<h5>Lorem ipsum dolor</h5>';
+            echo '<p>Sed justo dui, scelerisque ut consectetur vel, eleifend id erat.</p>';
+            echo '</div>';
+            echo '</a>';
+            echo '</div>';
+
+            $index = $index + 1;
+            $value = $value + 1;
+        }
+
+        ?>
+
+    </div>
+
+    <div class="button">
+        <ul id="filters">
+            <li><a href="#" data-filter="*">Todos</a></li>
+            <li><a href="#" data-filter=".estruturas">Estruturas</a></li>
+            <li><a href="#" data-filter=".hidraulica">Hidraulica</a></li>
+            <li><a href="#" data-filter=".three">Three</a></li>
+            <li><a href="#" data-filter=".four">Four</a></li>
+            <li><a href="#" data-filter=".five">Five</a></li>
+        </ul>
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+
+<!-- Page content ends -->
