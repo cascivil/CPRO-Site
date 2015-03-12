@@ -27,20 +27,14 @@
 */
 
   // Loading config files
-  require 'Lib/Dispatcher.php';
+  require 'Lib/Application.php';
   require 'Lib/Controller.php';
   require 'Lib/View.php';
-
-  function __autoload($class)
-  {
-    require LIBS . $class . '.php';
-  }
 
  // $app = new Dispatcher();
 
   // Application start
   $o_Application = new Application();
   $o_Application->dispatch();
-
 ?>
 

@@ -1,4 +1,12 @@
 
+
+<?php
+
+$v_params = $this->getParams();
+$st_name = $v_params['Nome'];
+
+?>
+
 <!-- Page heading starts -->
 
 <div class="page-head">
@@ -21,7 +29,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<!-- Name with the job detail-->
-				<h2>Felipe Souza <span class="rsmall"><span class="color">@</span> CIO</span></h2>
+				<h2><?php echo $st_name; ?> <span class="rsmall"><span class="color">@</span> CIO</span></h2>
 				<!-- Small intro para -->
 				<p>Duis a risus sed dolor placerat semper quis in urna. Nam risus magna, fringilla sit amet blandit viverra, dignissim eget est. Ut commodo ullamcorper risus nec mattis. Donec aliquet convallis tortor, et placerat quam posuere posuere..</p>
 				<div class="bor"></div>

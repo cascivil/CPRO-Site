@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>Portfolio</h2>
-                <h4>Saiba mais sobre os projetos que CPRO realizou.</h4>
+                <h4>Saiba sobre os principais projetos que CPRO realizou.</h4>
             </div>
         </div>
     </div>
@@ -32,8 +32,8 @@
           foreach ($portifolio = array("estruturas","hidraulica", "three","three",5,6,7) as $value)
           {
             echo '<div class="element ' . $value . ' four five">';
-            echo '<a href="Content/img/photos/' . $index . '.jpg" class="prettyphoto">';
-            echo '<img src="Content/img/photos/' . $index . '.jpg" alt="" />';
+            echo '<a href="' . URL . 'Content/img/photos/' . $index . '.jpg" class="prettyphoto">';
+            echo '<img src="' . URL . 'Content/img/photos/' . $index . '.jpg" alt="" />';
             echo '<div class="pcap">';
             echo '<h5>Lorem ipsum dolor</h5>';
             echo '<p>Sed justo dui, scelerisque ut consectetur vel, eleifend id erat.</p>';
@@ -43,9 +43,9 @@
 
             $index = $index + 1;
             $value = $value + 1;
-        }
+          }
 
-        ?>
+          ?>
 
     </div>
 
@@ -59,10 +59,50 @@
             <li><a href="#" data-filter=".five">Five</a></li>
         </ul>
     </div>
+</div>
+</div>
+</div>
 
 </div>
-</div>
-</div>
-</div>
 
+
+<div class="content client-page">
+  <div class="container">
+  <div class="rp">
+    <div class="col-md-12">
+        <h4 class="title">Principais clientes</h4>
+    </div>
+
+
+    <div class="row">
+
+        <?php
+            $value = 1;
+
+            foreach (array(1,2,3,4,5,6) as $value)
+            {
+                echo '<div class="col-md-4 col-sm-6">';
+                   echo '<div class="cclient">';
+
+                      echo '<div class="cimage">';
+                         echo '<img src="' . URL . 'Content/img/clients/' . $value . '.png" alt="NomeCliente ' . $value . '" class="img-responsive" />';
+                      echo '</div>';
+
+                      echo '<div class="cmatter">';
+                         echo '<p>Praesent at tellus porttitor nisl porttitor sagittis. Mauris in massa ligula, a tempor nulla.</p>';
+
+                         echo '<div class="button"><a href="#">Visite o Site</a></div>';
+                      echo '</div>';
+                   echo '</div>';
+                echo '</div>';
+
+                $value = $value + 1;
+            }
+
+        ?>
+
+    </div>
+  </div>
+</div>
+</div>
 <!-- Page content ends -->

@@ -1,8 +1,10 @@
 <?php
 
 // Always provide a TRAILING SLASH (/) AFTER A PATH
-define('URL', 'http://hom.cproengenharia.com.br:8080/');
+define('URL', 'http://hom.cproengenharia.com.br:8081/');
 define('LIBS', 'Lib/');
+define('CONTROLLER', 'Controllers/');
+define('MODELS', 'Models/');
 
 // Access to Database
 define('DB_TYPE', 'mysql');

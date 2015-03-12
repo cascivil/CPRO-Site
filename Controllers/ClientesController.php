@@ -2,12 +2,12 @@
 
 class Clientes extends Controller {
 	
-	function __construct()
+	function __construct ()
 	{
 		parent::__construct();
 	}
 
-	function index()
+	function index ()
 	{
 		$this->view->render('Clientes/Index', false);
 	}

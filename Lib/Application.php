@@ -10,13 +10,12 @@
  * Arquivo - IndexController.php
  ************************************************/
 
-
 // Load classes from Lib folder
 function __autoload ($st_class)
 {
-  if (file_exists('Lib/' . $st_class . '.php'))
+  if (file_exists(LIBS . $st_class . '.php'))
   {
-    require_once 'Lib/' . $st_class . '.php';
+    require_once LIBS . $st_class . '.php';
   }
 }
 
@@ -26,7 +25,7 @@ function __autoload ($st_class)
 * Caso o controlador (controller) não seja especificado, o IndexControllers será o padrão
 * Caso o método (Action) não seja especificado, o indexAction será o padrão
 * 
-**/
+**/ 
 class Application
 {
     /*
@@ -42,7 +41,14 @@ class Application
     * @var string
     */
     protected $st_action;
-  
+
+    /*
+    * Usada para guardar os parâmetros necessários ao metodo da
+    * classe de controle que deverá ser executado
+    * @var string
+    */
+    protected $st_parameters;
+
     /*
     * Verifica se os parâmetros de controlador (Controller) e ação (Action) foram
     * passados via parâmetros "Post" ou "Get" e os carrega tais dados
@@ -50,57 +56,54 @@ class Application
     */
     private function loadRoute()
     {
-      /*
-      * Se o controller nao for passado por GET,
-      * assume-se como padrão o controller 'IndexController';
-      */
-      $this->st_controller = isset($_REQUEST['controle']) ? $_REQUEST['controle'] : 'Index';
+        $url = isset($_GET['url']) ? $_GET['url'] : null;
+        $url = strtolower(rtrim($url, '/'));
+        $url = explode('/', $url);
 
-      /*
-      * Se a action nao for passada por GET,
-      * assume-se como padrão a action 'IndexAction';
-      */
-      $this->st_action = isset($_REQUEST['acao']) ? $_REQUEST['acao'] : 'index';
+        print_r($url);
 
+        $this->st_controller = !empty($url[0]) ? ucfirst($url[0]) : 'Index';
 
+        if (strpos($this->st_controller, '-'))
+        {
+            $this->st_controller = explode('-', $this->st_controller);
+            $this->st_controller = $this->st_controller[0] . ucfirst($this->st_controller[1]);
+        }
 
+        echo '<br>' . $this->st_controller . '<br>';
 
-      $url = isset($_GET['url']) ? $_GET['url'] : null;
-      $url = strtolower(rtrim($url, '/'));
-      $url = explode('/', $url);
+        $this->st_action = !empty($url[1]) ? $url[1] : 'index';
 
-      print_r($url);
+        if (strpos($this->st_action, '-'))
+        {
+            $this->st_action = explode('-', $this->st_action);
+            $this->st_action = $this->st_action[0] . ucfirst($this->st_action[1]);
+        }
 
-      if (empty($url[0]))
-      {
-          require 'Controllers/IndexController.php';
-          $controller = new Index();
-          return false;
-      }
+        echo $this->st_action;
 
-      $file = 'Controllers/' . ucfirst($url[0]) . 'Controller.php';
+        $length = count($url);
+        echo 'Tamanho URL ' . $length . '<br>';
 
-      if (file_exists($file))
-      {
-          require $file;
-      }
-      else
-      {
-          require 'Controllers/ErrorController.php';
-          $controller = new Error();
-          return false;
-      }
+        if ($length > 2)
+        {
+            $this->st_parameters = $url[2];
 
-      $controllerName = ucfirst($url[0]);
-      $controller = new $controllerName;
+            for ($i=3; $i < $length; $i++)
+            {
+                $this->st_parameters .= ', ' . $url[$i];
+            }
 
+//            $this->st_parameters = implode(',', $this->st_parameters);
+        }
+        else
+        {
+            empty($this->st_parameters);
+        }
 
-
-
-
-
+        echo 'Parametros da URL:   ' . $this->st_parameters;
     }
-  
+
     /*
     * Instancia classe referente ao Controlador (Controller) e executa
     * método referente e  acao (Action)
@@ -110,28 +113,52 @@ class Application
     {
         $this->loadRoute();
   
-        // Verificando se o arquivo de controle existe
-        $st_controller_file = 'Controllers/' . $this->st_controller . 'Controller.php';
+        // Controller exists
+        $st_controller_file = CONTROLLER . $this->st_controller . 'Controller.php';
 
         if (file_exists($st_controller_file))
+        {
             require_once $st_controller_file;
+        }
         else
+        {
             throw new Exception('Arquivo '.$st_controller_file.' não encontrado');
-  
-        //verificando se a classe existe
-        $st_class = $this->st_controller.'Controller';
+        }
+
+        // Class exists
+        $st_class = $this->st_controller;
 
         if (class_exists($st_class))
+        {
             $o_class = new $st_class;
+        }
         else
+        {
             throw new Exception("Classe '$st_class' não existe no arquivo '$st_controller_file'");
+        }
   
-        //verificando se o metodo existe
-        $st_method = $this->st_action.'Action';
-        if(method_exists($o_class,$st_method))
-            $o_class->$st_method();
+        // Method exists
+        $st_method = $this->st_action;
+
+        if (method_exists($o_class, $st_method))
+        {
+            // Call method without parameters 
+            $o_class->$st_method($this->st_parameters);
+        }
         else
+        {
             throw new Exception("Metodo '$st_method' não existe na classe $st_class'");
+        }
+    }
+
+
+    public function error ()
+    {
+        require CONTROLLER . 'ErrorController.php';
+
+        $this->_controller = new Error();
+        $this->_controller->index();
+        exit;
     }
 
     /*
