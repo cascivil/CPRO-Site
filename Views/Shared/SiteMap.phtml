@@ -3,12 +3,12 @@
 
 <div class="page-head">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Mapa do Site</h2>
-        <h4>Encontre aqui os principais conteúdos do site</h4>
-      </div>
-    </div>
+	<div class="row">
+	  <div class="col-md-12">
+		<h2>Mapa do Site</h2>
+		<h4>Encontre aqui os principais conteúdos do site</h4>
+	  </div>
+	</div>
   </div>
 </div>
 
@@ -17,64 +17,51 @@
 <!-- Page content starts -->
 
 <div class="content">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h5>Digite a sessão para filtrar</h5>
-                <div id="form"></div>
-                <hr />
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h5>Digite a sessão para filtrar</h5>
+				<div id="form"></div>
+				<hr />
 
-                <div class="clearfix"></div>
-                <!-- Lists -->
-                <ul id="slist">
-                <!-- List #1 -->
-                <li>
-                    <!-- Title -->
-                    <a href="#">Sed eu leo orci condimentum grvid metus</a>
-                    <!-- Para -->
-                    <p>Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.</p>
-                </li>
-            <!-- List #2 and so on.... -->
-            <li>
-             <a href="#">Fusce imperdiet risus eget viverr</a>
-             <p>Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.</p><p>Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.</p>
-            </li>
-            <li>
-             <a href="#">Dimmi vestibulum libero ut vestibulum</a>
-             <p>Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.</p>
-            </li>
-            <li>
-             <a href="#">Aeros a ante molestie gravida commodo</a>
-             <p>Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.</p>
-            </li>
-            <li>
-             <a href="#">Integer porta erat ac eros porta</a>
-             <p>Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.</p>
-            </li>
-            <li>
-             <a href="#">Molestie gravida commodo dui adipiscing</a>
-             <p>Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.</p>
-            </li>                                    
-            </ul>
-            </div>
+				<div class="clearfix"></div>
+				<!-- Lists -->
+				<ul id="slist">
 
-   <div class="col-md-4">
-     <div class="scontact well">
-       <h4>Contato</h4>
-       <!-- Phone, email and address with font awesome icon -->
-       <p>Praesent at tellus porttitor nisl porttitor sagittis. Mauris in massa ligula, a tempor nulla.</p>
-       <p><i class="fa fa-phone"></i> Phone<strong>:</strong> +55 11 96626-9225</p> 
-       <p><i class="fa fa-envelope-o"></i> Email<strong>:</strong> something@gmail.com</p>
-       <p><i class="fa fa-home"></i> Address<strong>:</strong> 12, Srtington Street, NY, USA </p>
-       <!-- Button -->
-       <div class="button">
-        <a href="contact.html">Fale Conosco</a>
-      </div>
-    </div>
-  </div>
+					<?php
+						$value = 1;
 
-</div>
-</div>
+						foreach (array(1,2,3,4,5,6) as $value)
+						{
+							echo '<li>';
+							   echo '<a href="#">Título da Sessão ' . $value . '</a>';
+							   echo '<p>TEXTO.</p>';
+							echo '</li>';
+
+							$value = $value + 1;
+						}
+
+					?>
+				</ul>
+			</div>
+
+			<div class="col-md-4">
+				<div class="scontact well">
+					<h4>Contato</h4>
+					<p>Entre em contato conosco e solicite um orçamento.</p>
+					<p><i class="fa fa-phone"></i> Phone<strong>:</strong> +55 11 96626-9225</p>
+					<p><i class="fa fa-envelope-o"></i> <strong>Email:</strong> contato@cproengenharia.com.br</p>
+					<p><i class="fa fa-home"></i> <strong>Address:</strong> R Rodolfo Belz, 220 - São Paulo, SP, CEP 05639-010 </p>
+
+					<!-- Button -->
+					<div class="button rp">
+						<a href="/fale-conosco">Fale Conosco</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </div>
 
 <!-- Page content ends -->

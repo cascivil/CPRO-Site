@@ -1,0 +1,15 @@
+<?php
+
+$v_params = $this->getParams();
+
+foreach ($v_params as $item => $value)
+{
+	echo $item . ' - ' . $value;
+}
+
+?>
+
+<form action="/setup/criar" method='post' role="form">
+	<button type="submit" class="btn btn-default" name='selecao' value='yes'>Criar DB</button>
+	<button type="submit" class="btn btn-default" name='selecao' value='no'>Limpar</button>
+</form>

@@ -79,14 +79,14 @@ class ContatoController
           $o_contato = new ContatoModel();
           $o_contato->loadById($_GET['in_con']);
           $o_contato->delete();
-            
+
           //Apagando os telefones do contato
           $o_telefone = new TelefoneModel();
           $v_telefone = $o_telefone->_list($_GET['in_con']);
           foreach($v_telefone AS $o_telefone)
               $o_telefone->delete();
           Application::redirect('?controle=Contato&acao=listarContato');
-      }   
+      }
   }
 }
 ?>

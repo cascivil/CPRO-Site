@@ -13,21 +13,6 @@ class Sobre extends Controller
 		$this->view->render('Sobre/Index', false);
 	}
 
-	function empresa ()
-	{
-		$this->view->render('Sobre/Index', false);
-	}
-
-	function profissionais ()
-	{
-		$this->view->render('Sobre/Index', false);
-	}
-
-	function depoimentos ()
-	{
-		$this->view->render('Sobre/Index', false);
-	}
-
 	function curriculo ($st_name = null)
 	{
 		if (!isset($st_name))
@@ -43,6 +28,5 @@ class Sobre extends Controller
 		}
 	}
 }
-
 
 ?>

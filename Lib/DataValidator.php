@@ -17,7 +17,7 @@ class DataValidator
   * @param mixed $mx_value
   * @return boolean
   */
-  static function isEmpty( $mx_value )
+  static function isEmpty ($mx_value)
   {
     if(!(strlen($mx_value) > 0))
     {
@@ -50,7 +50,7 @@ class DataValidator
   */
   static function isInteger( $mx_value )
   {
-    if(!DataValidator::isNumeric($mx_value))
+    if (!DataValidator::isNumeric($mx_value))
     {
       return false;
     }

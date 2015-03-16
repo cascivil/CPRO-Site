@@ -3,7 +3,7 @@
 class MapaSite extends Controller
 {
 
-	function __construct () 
+	function __construct ()
 	{
 		parent::__construct();
 	}
@@ -13,6 +13,5 @@ class MapaSite extends Controller
 		$this->view->render('Shared/SiteMap', false);
 	}
 }
-
 
 ?>

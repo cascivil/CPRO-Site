@@ -25,6 +25,11 @@ class Error extends Controller
 	{
 		$this->view->render('Error/Error500', false);
 	}
+
+	function Manutencao ()
+	{
+		$this->view->render('Error/Manutencao', true);
+	}
 }
 
 ?>

@@ -1,27 +1,27 @@
 <?php
 
 /*************************************************
- * Controlador que deverá ser chamado quando 
- * não for especificado nenhum outro.
+ * Default controller.
  *
- * @package HyperSys
+ * @package CPRO-Site
  * @author Felipe Souza
  *
- * Camada - Controladores ou Controllers
- * Diretório Pai - controllers 
- * Arquivo - IndexController.php
+ * Layer - Controllers
+ * Directory - Controllers
+ * File - IndexController.php
  ************************************************/
 
 class Index extends Controller
 {
-    function __construct ()
-    {
-        parent::__construct();
-    }
+	function __construct ()
+	{
+		parent::__construct();
+	}
 
-    function index ()
-    {
-        $this->view->render('Home/Index', false);
-    }
+	function index ()
+	{
+		$this->view->render('Home/Index', false);
+	}
 }
+
 ?>

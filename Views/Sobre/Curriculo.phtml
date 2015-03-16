@@ -4,6 +4,14 @@
 
 $v_params = $this->getParams();
 $st_name = $v_params['Nome'];
+$a_social = array(
+					'Facebook' => 'https://pt-br.facebook.com/fasfelipe',
+					'Linkedin' => 'http://www.linkedin.com.br',
+					'Twitter' => 'https://www.twitter.com'
+				);
+$st_titulo = 'Faculdade de Engenharia Civil';
+$st_instituicao = 'Universidade de São Paulo - USP';
+$st_skills = array('HTML5', 'HTML5', 'CSS3', 'jQuery', 'WordPress', 'Twitter Bootstrap', 'Photoshop');
 
 ?>
 
@@ -30,33 +38,37 @@ $st_name = $v_params['Nome'];
 			<div class="col-md-12">
 				<!-- Name with the job detail-->
 				<h2><?php echo $st_name; ?> <span class="rsmall"><span class="color">@</span> CIO</span></h2>
-				<!-- Small intro para -->
-				<p>Duis a risus sed dolor placerat semper quis in urna. Nam risus magna, fringilla sit amet blandit viverra, dignissim eget est. Ut commodo ullamcorper risus nec mattis. Donec aliquet convallis tortor, et placerat quam posuere posuere..</p>
+					<?php echo '<p>' . $st_name . '</p>'; ?>
+
 				<div class="bor"></div>
-				<!-- Resume -->
+
 				<div class="clearfix"></div>
-				<!-- About -->
+
 				<div class="rblock">
 					<div class="row">
 						<div class="col-md-3">
-							<!-- title -->
-							<h4>Sobre</h4>                            
+							<h4>Sobre</h4>
 						</div>
 						<div class="col-md-9">
 							<div class="rinfo">
-								<!-- Name -->
-								<h5>Ashok Ramesh</h5>
-								<!-- Job -->
-								<div class="rmeta">Professional Web Designer</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate eros nec odio egestas in dictum nisi vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse porttitor luctus imperdiet. <a href="#">Praesent ultricies</a> enim ac ipsum aliquet pellentesque. Nullam justo nunc, dignissim at convallis posuere, sodales eu orci. Duis a risus sed dolor placerat semper quis in urna. Nam risus magna, fringilla sit amet blandit viverra, dignissim eget est. Ut <strong>commodo ullamcorper risus nec</strong> mattis. </p>
-								<!-- Social media icons -->
-								<div class="social">
-									<a href="#"><i class="fa fa-facebook facebook"></i></a>
-									<a href="#"><i class="fa fa-twitter twitter"></i></a>
-									<a href="#"><i class="fa fa-linkedin linkedin"></i></a>
-									<a href="#"><i class="fa fa-google-plus google-plus"></i></a>
-									<a href="#"><i class="fa fa-pinterest pinterest"></i></a>
-								</div>  
+								<?php
+									echo '<h5>' . $st_name . '</h5>';
+									echo '<div class="rmeta">Professional Web Designer</div>';
+									echo '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate eros nec odio egestas in dictum nisi vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse porttitor luctus imperdiet. <a href="#">Praesent ultricies</a> enim ac ipsum aliquet pellentesque. Nullam justo nunc, dignissim at convallis posuere, sodales eu orci. Duis a risus sed dolor placerat semper quis in urna. Nam risus magna, fringilla sit amet blandit viverra, dignissim eget est. Ut <strong>commodo ullamcorper risus nec</strong> mattis. </p>';
+
+									if (!empty($a_social))
+									{
+										echo '<div class="social">';
+
+										foreach ($a_social as $key => $value)
+										{
+											echo '<a href="' . $value . '"  target="_blank"><i class="fa fa-' . strtolower($key) . ' ' . strtolower($key) . '"></i></a>';
+
+										}
+
+										echo '</div>';
+									}
+								?>
 							</div>
 						</div>
 					</div>
@@ -65,54 +77,71 @@ $st_name = $v_params['Nome'];
 				<div class="rblock">
 					<div class="row">
 						<div class="col-md-3">
-							<h4>Educação</h4>                            
+							<h4>Educação</h4>
 						</div>
 						<div class="col-md-9">
 							<div class="rinfo">
-								<!-- Title -->
-								<h5>B.Tech (Information Technology)</h5>
-								<!-- Meta -->
-								<div class="rmeta">KLNCE, Madurai</div>
-								<!-- Details -->
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate eros nec odio egestas in dictum nisi vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse porttitor luctus imperdiet. <a href="#">Praesent ultricies</a> enim ac ipsum aliquet pellentesque. Nullam justo nunc, dignissim at convallis posuere, sodales eu orci.</p>
+								<?php
+									echo '<h5>' . $st_titulo . '</h5>';
+									echo '<div class="rmeta">' . $st_instituicao . '</div>';
+									echo '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate eros nec odio egestas in dictum nisi vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse porttitor luctus imperdiet. <a href="#">Praesent ultricies</a> enim ac ipsum aliquet pellentesque. Nullam justo nunc, dignissim at convallis posuere, sodales eu orci.</p>';
+
+									echo '<hr>';
+
+									echo '<h5>' . $st_titulo . '</h5>';
+									echo '<div class="rmeta">' . $st_instituicao . '</div>';
+									echo '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate eros nec odio egestas in dictum nisi vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse porttitor luctus imperdiet. <a href="#">Praesent ultricies</a> enim ac ipsum aliquet pellentesque. Nullam justo nunc, dignissim at convallis posuere, sodales eu orci.</p>';
+								?>
 							</div>
 						</div>
 					</div>
 				</div>
+
 				<!-- Experience -->
 				<div class="rblock">
 					<div class="row">
 						<div class="col-md-3">
-							<h4>Experiencia Profissional</h4>                            
+							<h4>Experiencia Profissional</h4>
 						</div>
 						<div class="col-md-9">
 							<div class="rinfo">
-								<!-- Title -->
-								<h5>Google India</h5>
-								<!-- Meta -->
-								<div class="rmeta">Project Manager, Bangalore</div>
-								<!-- Details -->
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate eros nec odio egestas in dictum nisi vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse porttitor luctus imperdiet. <a href="#">Praesent ultricies</a> enim ac ipsum aliquet pellentesque. Nullam justo nunc, dignissim at convallis posuere, sodales eu orci.</p>
+
+								<?php
+									echo '<h5>Google India</h5>';
+									echo '<div class="rmeta">' . $st_instituicao . '</div>';
+									echo '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate eros nec odio egestas in dictum nisi vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse porttitor luctus imperdiet. <a href="#">Praesent ultricies</a> enim ac ipsum aliquet pellentesque. Nullam justo nunc, dignissim at convallis posuere, sodales eu orci.</p>';
+
+									echo '<hr>';
+
+									echo '<h5>' . $st_titulo . '</h5>';
+									echo '<div class="rmeta">' . $st_instituicao . '</div>';
+									echo '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate eros nec odio egestas in dictum nisi vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse porttitor luctus imperdiet. <a href="#">Praesent ultricies</a> enim ac ipsum aliquet pellentesque. Nullam justo nunc, dignissim at convallis posuere, sodales eu orci.</p>';
+								?>
 							</div>
 						</div>
 					</div>
-				</div>                           
+				</div>
 				<!-- Skills -->
 				<div class="rblock">
 					<div class="row">
 						<div class="col-md-3">
-							<h4>Habilidades</h4>                            
+							<h4>Habilidades</h4>
 						</div>
 						<div class="col-md-9">
 							<div class="rinfo">
 								<!-- Class "rskills" is important -->
 								<div class="rskills">
-									<span>HTML5</span> <span>CSS3</span> <span>jQuery</span> <span>WordPress</span> <span>Twitter Bootstrap</span> <span>Photoshop</span>
+									<?php
+										foreach ($st_skills as $value)
+										{
+											echo '<span>' . $value . '</span> ';
+										}
+									?>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>                           
+				</div>
 			</div>
 		</div>
 	</div>

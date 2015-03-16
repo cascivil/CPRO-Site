@@ -11,26 +11,35 @@
  * Arquivo - PersistModelAbstract.php
  ************************************************/
 
-abstract class PersistModelAbstract
+abstract class PersistModelAbstract extends PDO
 {
-  /*
-  * Variável responsável por guardar dados da conexão do banco
-  * @var resource
-  */
-  protected $o_db;
+    /*
+    * Variável responsável por guardar dados da conexão do banco
+    * @var resource
+    */
+    protected $o_db;
 
-  function __construct()
-  {
-    // Inicio de conexão com MySQL
-    $st_host = 'localhost';
-    $st_banco = 'HyperSys';
-    $st_usuario = 'admin';
-    $st_senha = 'osk5912';
+    function __construct ()
+    {
+        // Database query string
+        $st_dsn = DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8';
 
-    $st_dsn = "mysql:host=$st_host;dbname=$st_banco";
+        echo $st_dsn;
 
-    $this->o_db = new PDO($st_dsn, $st_usuario, $st_senha);
-  }
+        // Option string
+        $st_option = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8');
+
+        // MySQL Connection
+        $this->o_db = new PDO($st_dsn, DB_USER, DB_PASS, $st_option);
+
+        // Set Attributes
+        $this->o_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+
+    private function DatabaseBuild ()
+    {
+
+    }
 }
 
 ?>

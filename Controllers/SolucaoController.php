@@ -4,15 +4,14 @@
 require_once 'models/SolucaoModel.php';
 
 /*************************************************
- * Responsável por gerenciar o fluxo de dados entre
- * a camada de modelo e a de visualização
+ * Router configs
  *
- * @package HyperSys 
- * @author Felipe Souza 
+ * @package CPRO-Site
+ * @author Felipe Souza
  *
- * Camada - Controladores ou Controllers
- * Diretório Pai - controllers
- * Arquivo - SolucaoController.php
+ * Layer - Controladores ou Controllers
+ * Directory - Controllers
+ * File - SolucaoController.php
  ************************************************/
 
 class SolucaoController

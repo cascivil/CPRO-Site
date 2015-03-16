@@ -1,30 +1,33 @@
 <?php
 
 /*************************************************
- * Primeiro arquivo a ser executado.
+ * First file to be executed.
  *
- * @package HyperSys
+ * @package CPRO-Site
  * @author Felipe Souza
  *
- * Diretório Pai - Raiz do site
- * Arquivo - index.php
+ * Directory - Application Root
+ * File - index.php
  ************************************************/
 
-  // Adicionando variáveis de sistema
-  require 'config.php';
-  require SITE_PATH . 'Util/Auth.php';
+// Define system parameters
+require 'config.php';
+require SITE_PATH . 'Util/Auth.php';
 
-  // Configurando o PHP para mostrar os erros na tela
-  ini_set('display_errors', 1);
+// Setting PHP to show errors on screen
+ini_set('display_errors', 1);
 
-  // Configurando o PHP para reportar todo e qualquer erro
-  error_reporting(E_ALL);
+// Setting PHP to report every error
+error_reporting(E_ALL);
 
-  // Loading config files
-  require_once SITE_PATH . LIBS . 'Application.php';
+// Loading config files
+require_once SITE_PATH . LIBS . 'Application.php';
 
-  // Application start
-  $o_Application = new Application();
-  $o_Application->dispatch();
+// Application start
+$o_Application = new Application();
+$o_Application->dispatch();
+
+// Maintenance active (comment above instruction)
+//$o_Application->manutencao();
+
 ?>
-
