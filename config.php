@@ -11,8 +11,8 @@ define('MODELS', 'Models/');
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'CProSite');
-define('DB_USER', 'usrAppCpro');
-define('DB_PASS', '');
+define('DB_USER', 'usrAppCPro');
+define('DB_PASS', 'Sj6eA76Hf2Y4f56xG6BW');
 
 // Debug mode
 define('DEBUG', true);

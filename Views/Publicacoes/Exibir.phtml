@@ -1,0 +1,41 @@
+<?php
+
+$v_params = $this->getParams();
+$st_imagem = $v_params['Imagem'];
+
+/*$data = base64_decode($st_imagem);
+$formImage = imagecreatefromstring($data);
+*/
+
+// header('Content-type: image/jpeg');
+// echo $st_imagem;
+
+//header("Content-Type: image/jpeg;base64_encode");
+//echo $st_imagem;
+
+// $data = base64_decode($_POST['image_as_base64']);
+
+/*$im; // gd image resource
+ob_start();
+imagejpeg($st_imagem);
+$data = base64_encode(ob_get_clean());
+*/
+
+/*$data = base64_decode($st_imagem);
+
+$formImage = imagecreatefromstring ($data);
+echo $formImage;*/
+
+// file_put_contents('MyFile.jpg', base64_encode($st_imagem));
+
+/*$str="data:image/jpeg;base64,"; 
+$data=str_replace($str,"", $st_imagem); 
+$data = base64_encode($data);
+file_put_contents('tmp/1.jpg', $data);
+*/
+
+ // Funcionam
+ 	echo '<img src="data:image/jpeg;base64,' . base64_encode($st_imagem) . '"/>';
+ // echo '<img src="data:text/plain;base64,' . base64_encode($st_imagem) . '"/>';
+
+?>
