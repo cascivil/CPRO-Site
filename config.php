@@ -8,8 +8,9 @@ define('CONTROLLER', 'Controllers/');
 define('MODELS', 'Models/');
 
 // Access to Database
-define('DB_TYPE', 'mysql');
+define('DB_TYPE', 'pgsql');
 define('DB_HOST', 'localhost');
+define('DB_PORT', '5432');
 define('DB_NAME', 'CProSite');
 define('DB_USER', 'usrAppCPro');
 define('DB_PASS', 'Sj6eA76Hf2Y4f56xG6BW');

@@ -4,26 +4,33 @@
 
 DROP DATABASE IF EXISTS 'CProSite';
 
-CREATE DATABASE 'CProSite' CHARACTER SET UTF8;
 
-ALTER DATABASE `CProSite` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE "CProSite" 
+	WITH ENCODING = 'windows_1252' 
+	OWNER = usrAppCPro 
+	LC_COLLATE = 'Portuguese_Brazil.1252'
+	LC_CTYPE = 'Portuguese_Brazil.1252' 
+	CONNECTION LIMIT = -1;
 
-CREATE TABLE ''
+CREATE SCHEMA IF NOT EXISTS 'Publicacao';
 
 
-CREATE TABLE 'Configuracao.Sistema'
+CREATE TABLE IF NOT EXISTS ''
+
+
+CREATE TABLE IF NOT EXISTS 'Configuracao.Sistema'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	Nome VARCHAR(200) NOT NULL,
 	Ativo BIT NOT NULL,
 	DataCriacao TIMESTAMP NOT NULL,
 
-	PRIMARY KEY (Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo)
 );
 
-CREATE TABLE 'Configuracao.Campanha'
+CREATE TABLE IF NOT EXISTS 'Configuracao.Campanha'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	CodigoSistema INT NOT NULL,
 	Nome VARCHAR(200) NOT NULL,
 	Ativo BIT NOT NULL,
@@ -31,13 +38,13 @@ CREATE TABLE 'Configuracao.Campanha'
 	DataTermino TIMESTAMP NOT NULL,
 	DataCriacao TIMESTAMP NOT NULL,
 
-	PRIMARY KEY (Codigo),
-	FOREIGN KEY (CodigoSistema) REFERENCES Configuracao.Sistema(Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo),
+	CONSTRAINT 'FK_CodigoSistema' FOREIGN KEY (CodigoSistema) REFERENCES Configuracao.Sistema(Codigo)
 );
 
-CREATE TABLE 'Configuracao.SubCampanha'
+CREATE TABLE IF NOT EXISTS 'Configuracao.SubCampanha'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	CodigoCampanha INT NOT NULL,
 	Nome VARCHAR(200) NOT NULL,
 	Ativo BIT NOT NULL,
@@ -45,33 +52,33 @@ CREATE TABLE 'Configuracao.SubCampanha'
 	DataTermino TIMESTAMP NOT NULL,
 	DataCriacao TIMESTAMP NOT NULL,
 
-	PRIMARY KEY (Codigo),
-	FOREIGN KEY (CodigoCampanha) REFERENCES Configuracao.Campanha(Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo),
+	CONSTRAINT 'FK_CodigoCampanha' FOREIGN KEY (CodigoCampanha) REFERENCES Configuracao.Campanha(Codigo)
 );
 
-CREATE TABLE 'Configuracao.Procedure'
+CREATE TABLE IF NOT EXISTS 'Configuracao.Procedure'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	Nome VARCHAR(200) NOT NULL,
 	Ativo BIT NOT NULL,
 	DataCriacao TIMESTAMP NOT NULL,
 
-	PRIMARY KEY (Codigo),
-	FOREIGN KEY (CodigoCampanha) REFERENCES Configuracao.Campanha(Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo),
+	CONSTRAINT 'FK_' FOREIGN KEY (CodigoCampanha) REFERENCES Configuracao.Campanha(Codigo)
 );
 
-CREATE TABLE 'Log.LogSistema'
+CREATE TABLE IF NOT EXISTS 'Log.LogSistema'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	CodigoUsuario INT NOT NULL,
 	DataCriacao TIMESTAMP NOT NULL,
 
-	PRIMARY KEY (Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo)
 );
 
-CREATE TABLE 'Log.LogAuditoria'
+CREATE TABLE IF NOT EXISTS 'Log.LogAuditoria'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	CodigoSistema INT NOT NULL,
 	CodigoProcedure INT NOT NULL,
 	CodigoUsuario INT,
@@ -81,43 +88,43 @@ CREATE TABLE 'Log.LogAuditoria'
 	Resultado TINYINT,
 	MensagemErro TEXT(2000),
 
-	PRIMARY KEY (Codigo),
-	FOREIGN KEY (CodigoSistema) REFERENCES Configuracao.Sistema(Codigo),
-	FOREIGN KEY (CodigoProcedure) REFERENCES Configuracao.Procedure(Codigo),
-	FOREIGN KEY (CodigoUsuario) REFERENCES Cliente.Usuario(Codigo),
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo),
+	CONSTRAINT 'FK_CodigoSistema' FOREIGN KEY (CodigoSistema) REFERENCES Configuracao.Sistema(Codigo),
+	CONSTRAINT 'FK_CodigoProcedure' FOREIGN KEY (CodigoProcedure) REFERENCES Configuracao.Procedure(Codigo),
+	CONSTRAINT 'FK_CodigoUsuario' FOREIGN KEY (CodigoUsuario) REFERENCES Cliente.Usuario(Codigo),
 
 
 );
 
 
-CREATE TABLE 'Cliente.Perfil'
+CREATE TABLE IF NOT EXISTS 'Cliente.Perfil'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	Nome VARCHAR(100),
 	DataCriacao TIMESTAMP NOT NULL,
 
 	CodigoUsuario INT NOT NULL,
 	CodigoPerfil INT NOT NULL,
 
-	FOREIGN KEY (CodigoUsuario) REFERENCES Cliente.Usuario(Codigo),
-	FOREIGN KEY (CodigoPerfil) REFERENCES Cliente.Perfil(Codigo)
+	CONSTRAINT 'FK_CodigoUsuario' FOREIGN KEY (CodigoUsuario) REFERENCES Cliente.Usuario(Codigo),
+	CONSTRAINT 'FK_CodigoPerfil' FOREIGN KEY (CodigoPerfil) REFERENCES Cliente.Perfil(Codigo)
 );
 
 
-CREATE TABLE 'Cliente.ClientePerfil'
+CREATE TABLE IF NOT EXISTS 'Cliente.ClientePerfil'
 (
 	CodigoUsuario INT NOT NULL,
 	CodigoPerfil INT NOT NULL,
 
-	PRIMARY KEY (CodigoUsuario, CodigoPerfil),
-	FOREIGN KEY (CodigoUsuario) REFERENCES Cliente.Usuario(Codigo),
-	FOREIGN KEY (CodigoPerfil) REFERENCES Cliente.Perfil(Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (CodigoUsuario, CodigoPerfil),
+	CONSTRAINT 'FK_CodigoUsuario' FOREIGN KEY (CodigoUsuario) REFERENCES Cliente.Usuario(Codigo),
+	CONSTRAINT 'FK_CodigoPerfil' FOREIGN KEY (CodigoPerfil) REFERENCES Cliente.Perfil(Codigo)
 );
 
 
-CREATE TABLE 'Cliente.Usuario'
+CREATE TABLE IF NOT EXISTS 'Cliente.Usuario'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	CodigoCliente INT NOT NULL,
 	CodigoSistema INT NOT NULL,
 	Login VARCHAR(255) NOT NULL,
@@ -134,24 +141,24 @@ CREATE TABLE 'Cliente.Usuario'
 	DataTrocaSenha TIMESTAMP,
 	DataLiberacaoBloqueio TIMESTAMP,
 
-	PRIMARY KEY (Codigo),
-	FOREIGN KEY (CodigoCliente) REFERENCES Cliente.Cliente(Codigo),
-	FOREIGN KEY (CodigoSistema) REFERENCES Configuracao.Sistema(Codigo),
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo),
+	CONSTRAINT 'FK_CodigoCliente' FOREIGN KEY (CodigoCliente) REFERENCES Cliente.Cliente(Codigo),
+	CONSTRAINT 'FK_CodigoSistema' FOREIGN KEY (CodigoSistema) REFERENCES Configuracao.Sistema(Codigo),
 );
 
-CREATE TABLE 'Cliente.HistoricoAcesso'
+CREATE TABLE IF NOT EXISTS 'Cliente.HistoricoAcesso'
 (
 	CodigoUsuario INT,
 	DataCriacao TIMESTAMP NOT NULL,
 	IP VARCHAR(30),
 	Login VARCHAR,
 
-	FOREIGN KEY (CodigoUsuario) REFERENCES Cliente.Usuario(Codigo),
+	CONSTRAINT 'FK_CodigoUsuario' FOREIGN KEY (CodigoUsuario) REFERENCES Cliente.Usuario(Codigo),
 );
 
-CREATE TABLE 'Cliente.Cliente'
+CREATE TABLE IF NOT EXISTS 'Cliente.Cliente'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	CodigoUsuario INT NOT NULL,
 	CodigoSistema INT NOT NULL,
 	CodigoTelefone INT,
@@ -174,96 +181,96 @@ CREATE TABLE 'Cliente.Cliente'
 	DataCriacao TIMESTAMP NOT NULL,
 	DataAlteracao TIMESTAMP NOT NULL,
 
-	PRIMARY KEY (Codigo),
-	FOREIGN KEY (CodigoUsuario) REFERENCES Cliente.Usuario(Codigo),
-	FOREIGN KEY (CodigoSistema) REFERENCES Configuracao.Sistema(Codigo),
-	FOREIGN KEY (CodigoTelefone) REFERENCES Cliente.Telefone(Codigo),
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo),
+	CONSTRAINT 'FK_CodigoUsuario' FOREIGN KEY (CodigoUsuario) REFERENCES Cliente.Usuario(Codigo),
+	CONSTRAINT 'FK_CodigoSistema' FOREIGN KEY (CodigoSistema) REFERENCES Configuracao.Sistema(Codigo),
+	CONSTRAINT 'FK_CodigoTelefone' FOREIGN KEY (CodigoTelefone) REFERENCES Cliente.Telefone(Codigo),
 );
 
 
-CREATE TABLE 'Cliente.TipoRedeSocial'
+CREATE TABLE IF NOT EXISTS 'Cliente.TipoRedeSocial'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	Nome VARCHAR(50) NOT NULL,
 	DataCriacao TIMESTAMP NOT NULL,
 
-	PRIMARY KEY (Codigo),
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo),
 );
 
-CREATE TABLE 'Cliente.RedeSocial'
+CREATE TABLE IF NOT EXISTS 'Cliente.RedeSocial'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	CodigoCliente INT NOT NULL,
 	CodigoRedeSocial
 
-	PRIMARY KEY (Codigo),
-	FOREIGN KEY (CodigoCliente) REFERENCES Cliente.Cliente(Codigo),
-	FOREIGN KEY (CodigoRedeSocial) REFERENCES Cliente.TipoRedeSocial(Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo),
+	CONSTRAINT 'FK_CodigoCliente' FOREIGN KEY (CodigoCliente) REFERENCES Cliente.Cliente(Codigo),
+	CONSTRAINT 'FK_CodigoRedeSocial' FOREIGN KEY (CodigoRedeSocial) REFERENCES Cliente.TipoRedeSocial(Codigo)
 );
 
 
-CREATE TABLE 'Cliente.Telefone'
+CREATE TABLE IF NOT EXISTS 'Cliente.Telefone'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	Telefone VARCHAR(15) NOT NULL,
 	TelefoneDDD VARCHAR(8) NOT NULL,
 	CodigoWhastAppStatus SMALLINT(6) NOT NULL,
 
-	PRIMARY KEY (Codigo),
-	FOREIGN KEY (CodigoWhastAppStatus) REFERENCES Cliente.WhastAppStatus(Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo),
+	CONSTRAINT 'FK_CodigoWhastAppStatus' FOREIGN KEY (CodigoWhastAppStatus) REFERENCES Cliente.WhastAppStatus(Codigo)
 );
 
 
-CREATE TABLE 'Cliente.WhastAppStatus'
+CREATE TABLE IF NOT EXISTS 'Cliente.WhastAppStatus'
 (
-	Codigo SMALLINT(6) NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	Descricao VARCHAR(100) NOT NULL,
 
-	PRIMARY KEY (Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo)
 );
 
-CREATE TABLE 'Cliente.TipoOptin'
+CREATE TABLE IF NOT EXISTS 'Cliente.TipoOptin'
 
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SMALLSERIAL NOT NULL,
 	Descricao VARCHAR(50) NOT NULL,
 	Ativo BIT NOT NULL,
 
-	PRIMARY KEY (Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo)
 );
 
-CREATE TABLE 'Cliente.ClienteOptin'
+CREATE TABLE IF NOT EXISTS 'Cliente.ClienteOptin'
 (
 	CodigoCliente INT NOT NULL,
 	CodigoTipoOptin INT NOT NULL,
 
-	PRIMARY KEY (CodigoCliente, CodigoTipoOptin),
-	FOREIGN KEY (CodigoCliente) REFERENCES Cliente.Cliente(Codigo),
-	FOREIGN KEY (CodigoTipoOptin) REFERENCES Cliente.TipoOptin(Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (CodigoCliente, CodigoTipoOptin),
+	CONSTRAINT 'FK_CodigoCliente' FOREIGN KEY (CodigoCliente) REFERENCES Cliente.Cliente(Codigo),
+	CONSTRAINT 'FK_CodigoTipoOptin' FOREIGN KEY (CodigoTipoOptin) REFERENCES Cliente.TipoOptin(Codigo)
 );
 
-CREATE TABLE 'Cliente.Genero'
+CREATE TABLE IF NOT EXISTS 'Cliente.Genero'
 (
-	Codigo TINYINT NOT NULL AUTO_INCREMENT,
+	Codigo SMALLSERIAL NOT NULL,
 	Descricao VARCHAR(30) NOT NULL,
 
-	PRIMARY KEY (Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo)
 );
 
 
 -- Cria o disparo de determinado e-mail sistêmico para determinado cliente
-CREATE TABLE 'Email.DisparoEmail'
+CREATE TABLE IF NOT EXISTS 'Email.DisparoEmail'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	CodigoCliente INT NOT NULL,
 	DataCriacao TIMESTAMP NOT NULL
 
-	FOREIGN KEY (CodigoCliente) REFERENCES Cliente.Cliente(Codigo),
+	CONSTRAINT 'FK_CodigoCliente' FOREIGN KEY (CodigoCliente) REFERENCES Cliente.Cliente(Codigo),
 );
 
 -- Armazena os templates de e-mails sistêmicos associado a entidade Campanha
-CREATE TABLE 'Email.TemplateEmail'
+CREATE TABLE IF NOT EXISTS 'Email.TemplateEmail'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	CodigoCampanha INT NOT NULL,
 	DataCriacao TIMESTAMP NOT NULL,
 	Descricao VARCHAR(200) NOT NULL,
@@ -271,12 +278,12 @@ CREATE TABLE 'Email.TemplateEmail'
 	HTML TEXT(65000) NOT NULL,
 	Ativo BIT NOT NULL,
 
-	PRIMARY KEY (Codigo),
-	FOREIGN KEY (CodigoCampanha) REFERENCES Configuracao.Campanha(Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo),
+	CONSTRAINT 'FK_CodigoCampanha' FOREIGN KEY (CodigoCampanha) REFERENCES Configuracao.Campanha(Codigo)
 );
 
 -- Armazena os parâmetros dinâmicos dos e-mails sistêmicos
-CREATE TABLE 'Email.ParametroEmail'
+CREATE TABLE IF NOT EXISTS 'Email.ParametroEmail'
 (
 	CodigoTemplateEmail INT NOT NULL,
 	NomeParametro VARCHAR(100) NOT NULL,
@@ -285,25 +292,25 @@ CREATE TABLE 'Email.ParametroEmail'
 );
 
 -- Considerar planos,
-CREATE TABLE 'Produto.Produto'
+CREATE TABLE IF NOT EXISTS 'Produto.Produto'
 (
 
 );
 
-CREATE TABLE 'Produto.Estoque'
+CREATE TABLE IF NOT EXISTS 'Produto.Estoque'
 (
 
 );
 
 
-CREATE TABLE 'Transacao.Estoque'
+CREATE TABLE IF NOT EXISTS 'Transacao.Estoque'
 (
 
 );
 
-CREATE TABLE 'Publicacao.Publicacao'
+CREATE TABLE IF NOT EXISTS 'Publicacao.Publicacao'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	CodigoCampanha INT NOT NULL,
 	Nome VARCHAR(50),
 	Descricao VARCHAR(200),
@@ -317,31 +324,31 @@ CREATE TABLE 'Publicacao.Publicacao'
 	Publicado BIT NOT NULL,
 	Ativo BIT NOT NULL,
 
-	PRIMARY KEY (Codigo),
-	FOREIGN KEY (CodigoCampanha) REFERENCES Configuracao.Campanha(Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo),
+	CONSTRAINT 'FK_CodigoCampanha' FOREIGN KEY (CodigoCampanha) REFERENCES Configuracao.Campanha(Codigo)
 );
 
-CREATE TABLE 'Publicacao.AutorPublicacao'
+CREATE TABLE IF NOT EXISTS 'Publicacao.AutorPublicacao'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	CodigoCliente INT NOT NULL,
 	CodigoPublicacao INT NOT NULL,
 
 
-	PRIMARY KEY (Codigo),
-	FOREIGN KEY (CodigoCliente) REFERENCES Cliente.Cliente(Codigo),
-	FOREIGN KEY (CodigoPublicacao) REFERENCES Publicacao.Publicacao(Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo),
+	CONSTRAINT 'FK_CodigoCliente' FOREIGN KEY (CodigoCliente) REFERENCES Cliente.Cliente(Codigo),
+	CONSTRAINT 'FK_CodigoPublicacao' FOREIGN KEY (CodigoPublicacao) REFERENCES Publicacao.Publicacao(Codigo)
 );
 
-CREATE TABLE 'Publicacao.Imagem'
+CREATE TABLE IF NOT EXISTS 'Publicacao.Imagem'
 (
-	Codigo INT NOT NULL AUTO_INCREMENT,
+	Codigo SERIAL NOT NULL,
 	Nome VARCHAR(50),
 	Descricao VARCHAR(200),
 	Imagem LONGBLOB NOT NULL,
 	DataCriacao TIMESTAMP NOT NULL,
 
-	PRIMARY KEY (Codigo)
+	CONSTRAINT 'PK_Codigo' PRIMARY KEY (Codigo)
 );
 
 -- Inserção de Sistema padrão de gerenciamento

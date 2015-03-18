@@ -44,7 +44,7 @@ class PublicacoesModel extends PersistModelAbstract
 				$tamanhoImg = filesize($nomeFinal);
 				$mysqlImg = addslashes(fread(fopen($nomeFinal, "r"), $tamanhoImg));
 
-				$st_query = 'INSERT INTO PublicacaoImagem (Imagem) VALUES ("' . $mysqlImg . '")';
+				$st_query = 'INSERT INTO Publicacao.Imagem (Imagem) VALUES ("' . $mysqlImg . '"")';
 
 				try
 				{
@@ -53,6 +53,7 @@ class PublicacoesModel extends PersistModelAbstract
 				}
 				catch(PDOException $e)
 				{
+					echo 'Error: ' . $e->getMessage();
 					throw new Exception("Error Processing Request", 1);
 
 				}
@@ -83,7 +84,7 @@ class PublicacoesModel extends PersistModelAbstract
 		}
 		catch (PDOException $e)
 		{
-    		echo 'ERROR: ' . $e->getMessage();
+			echo 'ERROR: ' . $e->getMessage();
 		}
 
 		return false;
@@ -268,15 +269,27 @@ class PublicacoesModel extends PersistModelAbstract
 	*/
 	private function createTablePublicacoes()
 	{
-  		$st_query = "CREATE TABLE IF NOT EXISTS PublicacaoImagem
+		$st_query = 'CREATE SCHEMA IF NOT EXISTS "Publicacao"';
+
+		//executando a query;
+		try
+		{
+			$this->o_db->exec($st_query);
+		}
+		catch(PDOException $e)
+		{
+			throw $e;
+		}
+
+		$st_query = 'CREATE TABLE IF NOT EXISTS "Publicacao"."Imagem"
 					(
-						Codigo INT NOT NULL AUTO_INCREMENT,
+						Codigo SERIAL NOT NULL,
 						Nome VARCHAR(50),
 						Descricao VARCHAR(200),
-						Imagem LONGBLOB NOT NULL,
+						Imagem OID NOT NULL,
 
-						PRIMARY KEY (Codigo)
-					)";
+						CONSTRAINT "PK_Codigo" PRIMARY KEY (Codigo)
+					)';
 
 		//executando a query;
 		try
