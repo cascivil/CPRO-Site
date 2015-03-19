@@ -1,4 +1,14 @@
 
+------------------------------------------------ Operations --------------------------------------------------
+
+-- Abra o CMD
+-- "cd C:\Program Files\PostgreSQL\9.4\bin"
+-- "psql.exe -U postgres CProSite"
+-- Digite a senha
+-- "\i C:/wamp/www/CPRO-Site/Databases/CPRO-Site.sql"
+--------------------------------------------------------------------------------------------------------------
+
+
 ------------------------------------------ Create and Drop Database ------------------------------------------
 
 DROP DATABASE IF EXISTS "CProSite";
@@ -133,7 +143,7 @@ CREATE TABLE IF NOT EXISTS Cliente.Telefone
 	Codigo SERIAL NOT NULL,
 	Telefone VARCHAR(15) NOT NULL,
 	TelefoneDDD VARCHAR(8) NOT NULL,
-	TipoTelefone TELEFONE NOT NULL, 
+	TipoTelefone TELEFONE NOT NULL,
 	OptinWhastApp BOOLEAN NOT NULL,
 	OptinSMS BOOLEAN NOT NULL,
 	Ativo BOOLEAN NOT NULL,
@@ -226,7 +236,7 @@ CREATE TABLE IF NOT EXISTS Configuracao.ClientePerfil
 CREATE TABLE IF NOT EXISTS RedeSocial.Facebook
 (
 	Codigo SERIAL NOT NULL,
-	CodigoCliente INT NOT NULL, 
+	CodigoCliente INT NOT NULL,
 	TokenAcesso VARCHAR(250) NOT NULL,
 	DataCriacao TIMESTAMP NOT NULL DEFAULT current_timestamp,
 
@@ -238,7 +248,7 @@ CREATE TABLE IF NOT EXISTS RedeSocial.Facebook
 CREATE TABLE IF NOT EXISTS RedeSocial.LinkedIn
 (
 	Codigo SERIAL NOT NULL,
-	CodigoCliente INT NOT NULL, 
+	CodigoCliente INT NOT NULL,
 	TokenAcesso VARCHAR(250) NOT NULL,
 	DataCriacao TIMESTAMP NOT NULL DEFAULT current_timestamp,
 
@@ -250,7 +260,7 @@ CREATE TABLE IF NOT EXISTS RedeSocial.LinkedIn
 CREATE TABLE IF NOT EXISTS RedeSocial.Twitter
 (
 	Codigo SERIAL NOT NULL,
-	CodigoCliente INT NOT NULL, 
+	CodigoCliente INT NOT NULL,
 	TokenAcesso VARCHAR(250) NOT NULL,
 	DataCriacao TIMESTAMP NOT NULL DEFAULT current_timestamp,
 
@@ -262,7 +272,7 @@ CREATE TABLE IF NOT EXISTS RedeSocial.Twitter
 CREATE TABLE IF NOT EXISTS RedeSocial.Instagram
 (
 	Codigo SERIAL NOT NULL,
-	CodigoCliente INT NOT NULL, 
+	CodigoCliente INT NOT NULL,
 	TokenAcesso VARCHAR(250) NOT NULL,
 	DataCriacao TIMESTAMP NOT NULL DEFAULT current_timestamp,
 
@@ -361,6 +371,28 @@ CREATE TABLE IF NOT EXISTS Email.ParametroEmail
 
 -- );
 
+
+CREATE TABLE IF NOT EXISTS Publicacao.Imagem
+(
+	Codigo SERIAL NOT NULL,
+	Nome VARCHAR(50),
+	Descricao VARCHAR(200),
+	Imagem OID NOT NULL,
+	DataCriacao TIMESTAMP NOT NULL DEFAULT current_timestamp,
+
+	PRIMARY KEY (Codigo)
+);
+
+CREATE TABLE IF NOT EXISTS Publicacao.Tag
+(
+	Codigo SERIAL NOT NULL,
+	Nome VARCHAR(50),
+	Ativo BOOLEAN NOT NULL DEFAULT TRUE,
+	DataCriacao TIMESTAMP NOT NULL DEFAULT current_timestamp,
+
+	PRIMARY KEY (Codigo)
+);
+
 CREATE TABLE IF NOT EXISTS Publicacao.Publicacao
 (
 	Codigo SERIAL NOT NULL,
@@ -378,32 +410,31 @@ CREATE TABLE IF NOT EXISTS Publicacao.Publicacao
 	Ativo BOOLEAN NOT NULL,
 
 	PRIMARY KEY (Codigo),
-	FOREIGN KEY (CodigoCampanha) REFERENCES Configuracao.Campanha(Codigo)
+	FOREIGN KEY (CodigoCampanha) REFERENCES Configuracao.Campanha(Codigo),
+	FOREIGN KEY (CodigoImagem) REFERENCES Publicacao.Imagem(Codigo),
 );
 
-CREATE TABLE IF NOT EXISTS Publicacao.AutorPublicacao
+CREATE TABLE IF NOT EXISTS Publicacao.PublicacaoTag
+(
+	CodigoTag INT NOT NULL,
+	CodigoPublicacao INT NOT NULL,
+	DataCriacao TIMESTAMP NOT NULL DEFAULT current_timestamp,
+
+	PRIMARY KEY (CodigoTag, CodigoPublicacao),
+	FOREIGN KEY (CodigoTag) REFERENCES Publicacao.Tag(Codigo),
+	FOREIGN KEY (CodigoPublicacao) REFERENCES Publicacao.Publicacao(Codigo),
+);
+
+CREATE TABLE IF NOT EXISTS Publicacao.ClientePublicacao
 (
 	Codigo SERIAL NOT NULL,
 	CodigoCliente INT NOT NULL,
 	CodigoPublicacao INT NOT NULL,
 
-
 	PRIMARY KEY (Codigo),
 	FOREIGN KEY (CodigoCliente) REFERENCES Cliente.Cliente(Codigo),
 	FOREIGN KEY (CodigoPublicacao) REFERENCES Publicacao.Publicacao(Codigo)
 );
-
-CREATE TABLE IF NOT EXISTS Publicacao.Imagem
-(
-	Codigo SERIAL NOT NULL,
-	Nome VARCHAR(50),
-	Descricao VARCHAR(200),
-	Imagem OID NOT NULL,
-	DataCriacao TIMESTAMP NOT NULL DEFAULT current_timestamp,
-
-	PRIMARY KEY (Codigo)
-);
-
 
 CREATE TABLE IF NOT EXISTS Log.LogSistema
 (

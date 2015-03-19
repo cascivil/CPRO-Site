@@ -26,9 +26,6 @@ class PublicacoesModel extends PersistModelAbstract
 	function __construct()
 	{
 		parent::__construct();
-
-		// Executa método de criação da tabela de Atividades
-		$this->createTablePublicacoes();
 	}
 
 	public function setImage()
@@ -262,7 +259,7 @@ class PublicacoesModel extends PersistModelAbstract
 
 
 
-	/**
+	/** DEPRECIADO !
 	* Cria tabela para armazernar os dados de telefone, caso
 	* ela ainda não exista.
 	* @throws PDOException
