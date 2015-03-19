@@ -13,9 +13,9 @@
 // Load classes from Lib folder
 function __autoload ($st_class)
 {
-	if (file_exists(LIBS . $st_class . '.php'))
+	if (file_exists(SITE_PATH . LIBS . $st_class . '.php'))
 	{
-		require_once LIBS . $st_class . '.php';
+		require_once SITE_PATH . LIBS . $st_class . '.php';
 	}
 }
 

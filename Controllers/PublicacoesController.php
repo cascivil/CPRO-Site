@@ -1,6 +1,6 @@
 <?php
 
-require '/Models/PublicacoesModel.php';
+require SITE_PATH . '/Models/PublicacoesModel.php';
 
 class Publicacoes extends Controller
 {
