@@ -16,8 +16,10 @@ DROP DATABASE IF EXISTS "CProSite";
 CREATE DATABASE "CProSite"
 	WITH ENCODING = 'UTF-8'
 	OWNER = "usrAppCPro"
-	LC_COLLATE = 'Portuguese_Brazil.1252'
-	LC_CTYPE = 'Portuguese_Brazil.1252'
+	--LC_COLLATE = 'Portuguese_Brazil.1252'
+	--LC_CTYPE = 'Portuguese_Brazil.1252'
+	LC_COLLATE = 'pt_BR.UTF8'
+	LC_CTYPE = 'pt_BR.UTF8'
 	CONNECTION LIMIT = -1;
 --------------------------------------------------------------------------------------------------------------
 
@@ -411,7 +413,7 @@ CREATE TABLE IF NOT EXISTS Publicacao.Publicacao
 
 	PRIMARY KEY (Codigo),
 	FOREIGN KEY (CodigoCampanha) REFERENCES Configuracao.Campanha(Codigo),
-	FOREIGN KEY (CodigoImagem) REFERENCES Publicacao.Imagem(Codigo),
+	FOREIGN KEY (CodigoImagem) REFERENCES Publicacao.Imagem(Codigo)
 );
 
 CREATE TABLE IF NOT EXISTS Publicacao.PublicacaoTag
@@ -422,7 +424,7 @@ CREATE TABLE IF NOT EXISTS Publicacao.PublicacaoTag
 
 	PRIMARY KEY (CodigoTag, CodigoPublicacao),
 	FOREIGN KEY (CodigoTag) REFERENCES Publicacao.Tag(Codigo),
-	FOREIGN KEY (CodigoPublicacao) REFERENCES Publicacao.Publicacao(Codigo),
+	FOREIGN KEY (CodigoPublicacao) REFERENCES Publicacao.Publicacao(Codigo)
 );
 
 CREATE TABLE IF NOT EXISTS Publicacao.ClientePublicacao

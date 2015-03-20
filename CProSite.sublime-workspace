@@ -1,0 +1,1265 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"COdig",
+				"CodigoCliente"
+			],
+			[
+				"Codi",
+				"CodigoCliente"
+			],
+			[
+				"as",
+				"AS"
+			],
+			[
+				"ty",
+				"TYPE"
+			],
+			[
+				"Cre",
+				"CREATE"
+			],
+			[
+				"Cod",
+				"CodigoSistema"
+			],
+			[
+				"SMAL",
+				"SMALLINT"
+			],
+			[
+				"N",
+				"NOT"
+			],
+			[
+				"usrApp",
+				"usrAppCPro"
+			],
+			[
+				"hea",
+				"header_remove〔function〕"
+			],
+			[
+				"image",
+				"$imageType〔variable〕"
+			],
+			[
+				"form",
+				"$formImage〔variable〕"
+			],
+			[
+				"base",
+				"base64_encode"
+			],
+			[
+				"return",
+				"return"
+			],
+			[
+				"n",
+				"NULL"
+			],
+			[
+				"ret",
+				"$return〔variable〕"
+			],
+			[
+				"Data",
+				"DataCriacao"
+			],
+			[
+				"i",
+				"IP"
+			],
+			[
+				"Ti",
+				"TIMESTAMP"
+			],
+			[
+				"in",
+				"INT"
+			],
+			[
+				"ti",
+				"TIMESTAMP"
+			],
+			[
+				"da",
+				"DataCriacao"
+			],
+			[
+				"cre",
+				"CREATE"
+			],
+			[
+				"No",
+				"NOT"
+			],
+			[
+				"no",
+				"NOT"
+			],
+			[
+				"Co",
+				"CodigoTipoOptin"
+			],
+			[
+				"php",
+				"php"
+			],
+			[
+				"ke",
+				"key"
+			],
+			[
+				"name",
+				"name	Attr"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"stupp",
+				"strtoupper"
+			],
+			[
+				"sta_",
+				"sta_parameters"
+			],
+			[
+				"is",
+				"is"
+			],
+			[
+				"null",
+				"null"
+			],
+			[
+				"str",
+				"strrchr"
+			],
+			[
+				"expl",
+				"explode"
+			],
+			[
+				"Appli",
+				"Application"
+			],
+			[
+				"dis",
+				"dispatch"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"array",
+				"array"
+			],
+			[
+				"control",
+				"controllerName"
+			],
+			[
+				"__co",
+				"__construct"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"index",
+				"index"
+			],
+			[
+				"strlow",
+				"strtolower"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Lib/PersistModelAbstract.php",
+			"settings":
+			{
+				"buffer_size": 1283,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config.php",
+			"settings":
+			{
+				"buffer_size": 771,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Databases/CPRO-Site.sql",
+			"settings":
+			{
+				"buffer_size": 14157,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Controllers/PublicacoesController.php",
+			"settings":
+			{
+				"buffer_size": 1131,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Models/PublicacoesModel.php",
+			"settings":
+			{
+				"buffer_size": 6139,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Views/Publicacoes/Exibir.phtml",
+			"settings":
+			{
+				"buffer_size": 944,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Views/Publicacoes/Cadastro.phtml",
+			"settings":
+			{
+				"buffer_size": 407,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/User/SQLExec.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 290,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lib/DataValidator.php",
+			"settings":
+			{
+				"buffer_size": 1147,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Views/FaleConosco/Index.phtml",
+			"settings":
+			{
+				"buffer_size": 3321,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "\n<!-- Page heading starts -->\n\n<div class=\"page-head\">\n  <div class=\"container\">\n	<div class=\"row\">\n	  <div class=\"col-md-12\">\n		<h2>Mapa do Site</h2>\n		<h4>Encontre aqui os principais conteúdos do site</h4>\n	  </div>\n	</div>\n  </div>\n</div>\n\n<!-- Page Heading ends -->\n\n<!-- Page content starts -->\n\n<div class=\"content\">\n	<div class=\"container\">\n		<div class=\"row\">\n			<div class=\"col-md-8\">\n				<h5>Digite a sessão para filtrar</h5>\n				<div id=\"form\"></div>\n				<hr />\n\n				<div class=\"clearfix\"></div>\n				<!-- Lists -->\n				<ul id=\"slist\">\n\n					<?php\n						$value = 1;\n\n						foreach (array(1,2,3,4,5,6) as $value)\n						{\n							echo '<li>';\n							   echo '<a href=\"#\">Título da Sessão ' . $value . '</a>';\n							   echo '<p>TEXTO.</p>';\n							echo '</li>';\n\n							$value = $value + 1;\n						}\n\n					?>\n				</ul>\n			</div>\n\n			<div class=\"col-md-4\">\n				<div class=\"scontact well\">\n					<h4>Contato</h4>\n					<p>Entre em contato e solicite um orçamento.</p>\n					<p><i class=\"fa fa-phone\"></i> Phone<strong>:</strong> +55 11 96626-9225</p>\n					<p><i class=\"fa fa-envelope-o\"></i> <strong>Email:</strong> contato@cproengenharia.com.br</p>\n					<p><i class=\"fa fa-home\"></i> <strong>Address:</strong> R Rodolfo Belz, 220 - São Paulo, SP, CEP 05639-010 </p>\n\n					<!-- Button -->\n					<div class=\"button rp\">\n						<a href=\"/fale-conosco\">Fale Conosco</a>\n					</div>\n				</div>\n			</div>\n\n		</div>\n	</div>\n</div>\n\n<!-- Page content ends -->\n",
+			"file": "Views/Shared/SiteMap.phtml",
+			"file_size": 1533,
+			"file_write_time": 130708234735463737,
+			"settings":
+			{
+				"buffer_size": 1452,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<?php\n\n/**\n*\n*/\n\nclass SetupModel extends PersistModelAbstract\n{\n\n	function __construct ()\n	{\n		parent::__construct();\n		\n	}\n}\n\n\n\n\n?>",
+			"file": "Models/SetupModel.php",
+			"file_size": 150,
+			"file_write_time": 130707777435750910,
+			"settings":
+			{
+				"buffer_size": 133,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Controllers/SetupController.php",
+			"settings":
+			{
+				"buffer_size": 372,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Controllers/SobreController.php",
+			"settings":
+			{
+				"buffer_size": 518,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Views/Shared/Default.phtml",
+			"settings":
+			{
+				"buffer_size": 361,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lib/Application.php",
+			"settings":
+			{
+				"buffer_size": 3780,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"enable	",
+				"Package Control: Enable Package"
+			],
+			[
+				"package i",
+				"Package Control: Install Package"
+			],
+			[
+				"I",
+				"Package Control: Install Package"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Pac",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"emmt",
+				"Emmet: Match Pair (inward)"
+			],
+			[
+				"emmet",
+				"Emmet: Expand Abbreviation"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"",
+				"Package Control: List Packages"
+			],
+			[
+				"insta	",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 317.0,
+		"history":
+		[
+			"clear",
+			"cls",
+			"mysql",
+			"ls",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"clear",
+			"cls",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"ls",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"Restart ST",
+			"restart st",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"mport urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/wamp/www/CPRO-Site",
+		"/C/wamp/www/CPRO-Site/Controllers",
+		"/C/wamp/www/CPRO-Site/Databases",
+		"/C/wamp/www/CPRO-Site/Lib",
+		"/C/wamp/www/CPRO-Site/Models",
+		"/C/wamp/www/CPRO-Site/Views",
+		"/C/wamp/www/CPRO-Site/Views/Clientes",
+		"/C/wamp/www/CPRO-Site/Views/Error",
+		"/C/wamp/www/CPRO-Site/Views/FaleConosco",
+		"/C/wamp/www/CPRO-Site/Views/Home",
+		"/C/wamp/www/CPRO-Site/Views/Publicacoes",
+		"/C/wamp/www/CPRO-Site/Views/Servicos",
+		"/C/wamp/www/CPRO-Site/Views/Shared",
+		"/C/wamp/www/CPRO-Site/Views/Sobre"
+	],
+	"file_history":
+	[
+		"/C/wamp/www/CPRO-Site/Views/Home/Index.phtml",
+		"/C/wamp/www/CPRO-Site/Content/css/settings.css",
+		"/C/wamp/www/CPRO-Site/Content/css/style.css",
+		"/C/wamp/www/CPRO-Site/robots.txt",
+		"/C/wamp/www/CPRO-Site/Controllers/PublicacoesController.php",
+		"/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/User/SQLExec.sublime-settings",
+		"/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+		"/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/User/Side Bar.sublime-settings",
+		"/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/User/MySnippets.sublime-settings",
+		"/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/Alignment/Default (Windows).sublime-keymap",
+		"/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/User/Base File.sublime-settings",
+		"/C/wamp/www/CPRO-Site/Views/Sobre/Curriculo.phtml",
+		"/C/wamp/www/CPRO-Site/Views/Sobre/Index.phtml",
+		"/C/wamp/www/CPRO-Site/Controllers/TelefoneController.php",
+		"/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/TrailingSpaces/README.md",
+		"/C/wamp/www/CPRO-Site/Views/Shared/Header.phtml",
+		"/C/wamp/www/CPRO-Site/Views/Publicacoes/Index.phtml",
+		"/C/wamp/www/CPRO-Site/Views/Publicacoes/Publicacao.phtml",
+		"/C/wamp/www/CPRO-Site/Views/Shared/Footer.phtml",
+		"/C/wamp/www/CPRO-Site/Views/Shared/SiteMap.phtml",
+		"/C/wamp/www/CPRO-Site/Views/Servicos/Index.phtml",
+		"/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/TrailingSpaces/trailing_spaces.sublime-settings",
+		"/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/User/trailing_spaces.sublime-settings",
+		"/C/wamp/www/CPRO-Site/config.php",
+		"/C/wamp/www/CPRO-Site/Lib/Database.php",
+		"/C/wamp/www/CPRO-Site/Lib/Controller.php",
+		"/C/wamp/www/CPRO-Site/Lib/Application.php",
+		"/C/wamp/www/CPRO-Site/Controllers/SolucaoController.php",
+		"/C/wamp/www/CPRO-Site/Controllers/SobreController.php",
+		"/C/wamp/www/CPRO-Site/Controllers/FaleConoscoController.php",
+		"/C/wamp/www/CPRO-Site/Lib/Session.php",
+		"/C/wamp/www/CPRO-Site/Lib/View.php",
+		"/C/wamp/www/CPRO-Site/Views/Error/Error404.phtml",
+		"/C/wamp/www/CPRO-Site/Views/Error/Error500.phtml",
+		"/C/wamp/www/CPRO-Site/Views/Error/Manutencao.phtml",
+		"/C/wamp/www/CPRO-Site/Views/FaleConosco/Index.phtml",
+		"/C/wamp/www/CPRO-Site/Controllers/IndexController.php",
+		"/C/wamp/www/CPRO-Site/Controllers/MapaSiteController.php",
+		"/C/wamp/www/CPRO-Site/Controllers/ContatoController.php",
+		"/C/wamp/www/CPRO-Site/Controllers/ClientesController.php",
+		"/C/wamp/www/CPRO-Site/Controllers/ErrorController.php",
+		"/C/wamp/www/CPRO-Site/Databases/CPRO-Site.db",
+		"/C/wamp/www/CPRO-Site/index.php",
+		"/C/Users/Felipe/Desktop/SMZone222/webServidor/incfiles/jscalendar-1.0/README",
+		"/C/wamp/www/CPRO-Site/Databases/CPRO-Site.sql",
+		"/C/Users/Felipe/Desktop/SMZone222/webServidor/incfiles/user_connect.inc",
+		"/C/Users/Felipe/Dropbox/Upload/Everhour   Maintenance.html",
+		"/C/wamp/www/CPRO-Site/loader.php",
+		"/C/wamp/www/CPRO-Site/Views/Cases/Index.phtml",
+		"/C/wamp/www/CPRO-Site/Views/Portifolio/Index.phtml",
+		"/C/wamp/www/CPRO-Site/Views/Clientes/Index.phtml",
+		"/C/wamp/www/CPRO-Site/Controllers/CasesController.php",
+		"/C/wamp/www/CPRO-Site/Controllers/PortifolioController.php",
+		"/C/wamp/www/CPRO-Site/Views/listarContatos.phtml",
+		"/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/wamp/www/cpro/Views/Clients/Index.phtml",
+		"/C/wamp/www/cpro/Controllers/ServicosController.php",
+		"/C/wamp/www/cpro/Controllers/SobreController.php",
+		"/C/wamp/www/cpro/Views/Sobre/Index.phtml",
+		"/C/wamp/www/cpro/config.php",
+		"/C/wamp/www/cpro/loader.php",
+		"/C/wamp/www/cpro/Lib/Application.php",
+		"/C/wamp/www/cpro/Lib/Dispatcher.php",
+		"/C/wamp/www/cpro/Lib/Database.php",
+		"/C/wamp/www/cpro/Lib/Model.php",
+		"/C/wamp/www/cpro/Lib/View.php",
+		"/C/wamp/www/cpro/Views/Error/Error404.phtml",
+		"/C/wamp/www/cpro/Lib/Controller.php",
+		"/C/wamp/www/cpro/Util/Auth.php",
+		"/C/wamp/www/cpro/Controllers/ClientesController.php",
+		"/C/wamp/www/cpro/Controllers/ErrorController.php",
+		"/C/wamp/www/cpro/Controllers/PublicacoesController.php",
+		"/C/wamp/www/cpro/Controllers/FaleConoscoController.php",
+		"/C/wamp/www/cpro/Views/Servicos/Index.phtml",
+		"/C/wamp/www/cpro/Controllers/PortifolioController.php",
+		"/C/wamp/www/cpro/Controllers/IndexController.php",
+		"/C/wamp/www/cpro/index.php",
+		"/C/wamp/www/cpro/Content/css/style.css",
+		"/C/wamp/www/cpro/Views/Shared/SiteMap.phtml",
+		"/C/wamp/www/cpro/404-1.html",
+		"/C/wamp/www/cpro/controllers/ClientesController.php",
+		"/C/wamp/www/cpro/Views/Shared/Header.phtml",
+		"/C/wamp/www/cpro/Views/Shared/Footer.phtml",
+		"/C/wamp/www/cpro/Views/Publicacoes/Index.phtml",
+		"/C/wamp/www/cpro/Views/Publicacoes/Publicacao.phtml",
+		"/C/wamp/www/cpro/Lib/Session.php",
+		"/C/wamp/www/cpro/Views/Portifolio/Index.phtml",
+		"/C/wamp/www/cpro/Views/FaleConosco/Index.phtml",
+		"/C/wamp/www/cpro/views/home/Index.phtml",
+		"/C/wamp/www/cpro/Views/Sobre/Curriculo.phtml",
+		"/C/wamp/www/cpro/Views/Clientes/Index.phtml",
+		"/C/wamp/www/cpro/controllers/ErrorController.php",
+		"/C/wamp/www/cpro/Views/Error/Error500.phtml",
+		"/C/wamp/www/cpro/Views/Empresa/Index.phtml",
+		"/C/wamp/www/cpro/Views/Home/Slider.phtml",
+		"/C/wamp/www/cpro/controllers/IndexController.php",
+		"/C/wamp/www/cpro/lib/View.php",
+		"/C/wamp/www/cpro/views/home/index.phtml",
+		"/C/wamp/www/cpro/empresa.html",
+		"/C/wamp/www/cpro/views/shared/footer.phtml",
+		"/C/wamp/www/cpro/views/home/slider.phtml",
+		"/C/wamp/www/cpro/_index2.html",
+		"/C/wamp/www/cpro/.htaccess",
+		"/C/wamp/www/cpro/lib/Bootstrap.php",
+		"/C/wamp/www/cpro/views/error/error404.phtml",
+		"/C/wamp/www/cpro/lib/Controller.php",
+		"/C/wamp/www/cpro/views/shared/header.phtml",
+		"/C/wamp/www/cpro/lib/PersistModelAbstract.php",
+		"/C/wamp/www/cpro/curriculo.html",
+		"/C/wamp/www/cpro/clientes.html",
+		"/C/wamp/www/cpro/portifolio.html",
+		"/C/wamp/www/cpro/pricing2.html",
+		"/C/wamp/www/cpro/publicacoes.html",
+		"/C/wamp/www/cpro/css/style.css",
+		"/C/wamp/www/cpro/fale-conosco.html",
+		"/C/wamp/www/cpro/controllers/index.php",
+		"/C/wamp/www/cpro/controllers/IndexController (2).php",
+		"/C/wamp/www/cpro/icons.html",
+		"/C/Users/Felipe/Documents/NetBeansProjects/CPRO/index.html",
+		"/C/Windows/System32/drivers/etc/lmhosts.sam",
+		"/C/Users/Felipe/Documents/NetBeansProjects/CPRO/ftpsync.settings",
+		"/C/Users/Felipe/Documents/NetBeansProjects/CPRO/index-rslider.html",
+		"/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/Emmet/Default (Windows).sublime-keymap",
+		"/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"small_thin_grey",
+			".small_thin_grey",
+			"small_thin_grey",
+			"   \n",
+			"createTablePublicacoes",
+			"publica",
+			"TIMESTAMP",
+			"Ativo",
+			"Instagram",
+			"BIT",
+			"TipoRedeSocial",
+			"CodigoTelefone",
+			"telefone",
+			"RedeSocial",
+			"\"",
+			"tinn",
+			"-------------------------------------------------------------------------------------------------------------",
+			"---------------------------------------------------------------------------------------------------------------",
+			"----------------------------------------------------------------------------------------------------------------------------------------------------",
+			"-------------------------------------------------------------------------------",
+			"genero",
+			"text",
+			"CONSTRAINT",
+			"CONSTRAINT \"FK_CodigoCliente\" ",
+			"CONSTRAINT \"FK_CodigoUsuario\" ",
+			"CONSTRAINT \"FK_\" ",
+			"CONSTRAINT \"FK_CodigoCampanha\" ",
+			"CONSTRAINT \"FK_CodigoSistema\" ",
+			"--CONSTRAINT \"PK_Codigo\" ",
+			"CONSTRAINT PK_Codigo ",
+			"\"",
+			"lo",
+			"\"",
+			"\".\"",
+			"CONSTRAINT \"PK_Codigo\" PRIMARY KEY (Codigo)",
+			"CONSTRAINT \"PK_Codigo\" PRIMARY KEY (Codigo),",
+			"Perfil",
+			"'",
+			"AUTO_INCREMENT",
+			"DB_USER",
+			"createTableAtividades",
+			"criacao",
+			"<li>teste</li>\nAtivob\nutf8_general_ci\nDATABASE\n",
+			"st_host",
+			"st_senha",
+			"st_usuario",
+			"st_banco",
+			"apple",
+			"\n		",
+			"';\n",
+			"*/\n",
+			"d",
+			"     <div class=\"col-md-12\">\n        <h2>Portfolio</h2>\n        <h4>Saiba mais sobre os projetos que CPRO realizou.</h4>\n      </div>",
+			" <div class=\"col-md-12\">\n        <h2>Portfolio</h2>\n        <h4>Saiba mais sobre os projetos que CPRO realizou.</h4>\n      </div>",
+			".contein",
+			"fa",
+			"fa ",
+			"fa",
+			".a",
+			"row"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"BOOLEAN",
+			"'",
+			"--------------------------------------------------------------------------------------------------------------",
+			"-------------------------------------------------------------------------------------------------------------",
+			"---------------------------------------------------------------------------------------------------------------",
+			"----------------------------------------------------------------------------------------------------------------------------------------------------",
+			"",
+			".",
+			"--CONSTRAINT \"PK_Codigo\" PRIMARY KEY (Codigo)",
+			"--CONSTRAINT \"PK_Codigo\" PRIMARY KEY (Codigo),",
+			"\"",
+			"\"\n",
+			"(\n",
+			",\n"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Lib/PersistModelAbstract.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1283,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1117,
+								1117
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "config.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 771,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								124,
+								133
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Databases/CPRO-Site.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								621,
+								621
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SQL/SQL.tmLanguage",
+							"wrap_width": 80
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Controllers/PublicacoesController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1131,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								27,
+								27
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Models/PublicacoesModel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6139,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6110,
+								6110
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5145.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Views/Publicacoes/Exibir.phtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 944,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								449,
+								449
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Views/Publicacoes/Cadastro.phtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 407,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								407,
+								407
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/Users/Felipe/AppData/Roaming/Sublime Text 3/Packages/User/SQLExec.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 290,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								286,
+								286
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Lib/DataValidator.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1147,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								963,
+								963
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 599.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Views/FaleConosco/Index.phtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3321,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2902,
+								2863
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1155.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "Views/Shared/SiteMap.phtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1452,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								806,
+								806
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 331.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "Models/SetupModel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23,
+								33
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "Controllers/SetupController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 372,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								273,
+								278
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "Controllers/SobreController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 518,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								455,
+								405
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "Views/Shared/Default.phtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 361,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								173,
+								173
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "Lib/Application.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3780,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								754,
+								754
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SQLExec":
+	{
+		"height": 318.0
+	},
+	"output.SQLExec.errors":
+	{
+		"height": 130.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "CProSite.sublime-project",
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 259.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
